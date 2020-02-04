@@ -132,6 +132,12 @@ const config = {
                     expandProps: 'start'
                 }
             } ]
+        }, {
+            test: /\.wasm$/i,
+            type: 'javascript/auto',
+            use: [ {
+                loader: 'file-loader'
+            } ]
         } ]
     },
     node: {
@@ -282,8 +288,7 @@ function devServerProxyBypass({ path }) {
     if (path.startsWith('/css/') || path.startsWith('/doc/')
             || path.startsWith('/fonts/') || path.startsWith('/images/')
             || path.startsWith('/sounds/')
-            || path.startsWith('/static/')
-            || path.endsWith('.wasm')) {
+            || path.startsWith('/static/')) {
         return path;
     }
 
