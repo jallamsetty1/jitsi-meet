@@ -25,11 +25,12 @@ import {
     SET_DIALOUT_NUMBER,
     SET_DIALOUT_STATUS,
     SET_PREJOIN_DISPLAY_NAME_REQUIRED,
-    SET_SKIP_PREJOIN,
     SET_JOIN_BY_PHONE_DIALOG_VISIBLITY,
     SET_PRECALL_TEST_RESULTS,
     SET_PREJOIN_DEVICE_ERRORS,
-    SET_PREJOIN_PAGE_VISIBILITY
+    SET_PREJOIN_PAGE_VISIBILITY,
+    SET_SKIP_PREJOIN,
+    SET_SKIP_PREJOIN_ON_RELOAD
 } from './actionTypes';
 import {
     getFullDialOutNumber,
@@ -406,19 +407,6 @@ export function setDialOutNumber(value: string) {
 }
 
 /**
- * Sets the visibility of the prejoin page for future uses.
- *
- * @param {boolean} value - The visibility value.
- * @returns {Object}
- */
-export function setSkipPrejoin(value: boolean) {
-    return {
-        type: SET_SKIP_PREJOIN,
-        value
-    };
-}
-
-/**
  * Action used to set the visiblitiy of the 'JoinByPhoneDialog'.
  *
  * @param {boolean} value - The value.
@@ -466,6 +454,32 @@ export function setPrejoinDeviceErrors(value: Object) {
 export function setPrejoinPageVisibility(value: boolean) {
     return {
         type: SET_PREJOIN_PAGE_VISIBILITY,
+        value
+    };
+}
+
+/**
+ * Sets the visibility of the prejoin page for future uses.
+ *
+ * @param {boolean} value - The visibility value.
+ * @returns {Object}
+ */
+export function setSkipPrejoin(value: boolean) {
+    return {
+        type: SET_SKIP_PREJOIN,
+        value
+    };
+}
+
+/**
+ * Sets the visibility of the prejoin page when client is reloaded because of ice failure.
+ *
+ * @param {boolean} value - The visibility value.
+ * @returns {Object}
+ */
+export function setSkipPrejoinOnReload(value: boolean) {
+    return {
+        type: SET_SKIP_PREJOIN_ON_RELOAD,
         value
     };
 }

@@ -138,6 +138,7 @@ export default [
     'remoteVideoMenu',
     'roomPasswordNumberOfDigits',
     'resolution',
+    'skipPrejoinOnReload',
     'startAudioMuted',
     'startAudioOnly',
     'startScreenSharing',

@@ -120,7 +120,8 @@ import {
     initPrejoin,
     isPrejoinPageEnabled,
     isPrejoinPageVisible,
-    makePrecallTest
+    makePrecallTest,
+    setSkipPrejoinOnReload
 } from './react/features/prejoin';
 import { toggleScreenshotCaptureEffect } from './react/features/screenshot-capture';
 import { setSharedVideoStatus } from './react/features/shared-video';
@@ -779,6 +780,7 @@ export default {
             roomName, initialOptions);
 
         this._initDeviceList(true);
+        APP.store.dispatch(setSkipPrejoinOnReload(false));
 
         return this.startConference(con, tracks);
     },

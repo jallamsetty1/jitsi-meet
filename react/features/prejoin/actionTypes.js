@@ -15,11 +15,6 @@ export const PREJOIN_INITIALIZED = 'PREJOIN_INITIALIZED';
 export const SET_DEVICE_STATUS = 'SET_DEVICE_STATUS';
 
 /**
- * Action type to set the visiblity of the prejoin page for the future.
- */
-export const SET_SKIP_PREJOIN = 'SET_SKIP_PREJOIN';
-
-/**
  * Action type used to set the mandatory stance of the prejoin display name.
  */
 export const SET_PREJOIN_DISPLAY_NAME_REQUIRED = 'SET_PREJOIN_DISPLAY_NAME_REQUIRED';
@@ -68,3 +63,13 @@ export const SET_PREJOIN_DEVICE_ERRORS = 'SET_PREJOIN_DEVICE_ERRORS';
  * Action type to set the visibility of the prejoin page.
  */
 export const SET_PREJOIN_PAGE_VISIBILITY = 'SET_PREJOIN_PAGE_VISIBILITY';
+
+/**
+ * Action type to set the visiblity of the prejoin page for the future.
+ */
+export const SET_SKIP_PREJOIN = 'SET_SKIP_PREJOIN';
+
+/**
+ * Action type to set the visitbility of the prejoin page when client is reloaded because of ice failure.
+ */
+export const SET_SKIP_PREJOIN_ON_RELOAD = 'SET_SKIP_PREJOIN_ON_RELOAD';

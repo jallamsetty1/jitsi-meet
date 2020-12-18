@@ -1,4 +1,4 @@
-import { ReducerRegistry } from '../base/redux';
+import { PersistenceRegistry, ReducerRegistry } from '../base/redux';
 
 import {
     SET_DEVICE_STATUS,
@@ -10,7 +10,8 @@ import {
     SET_PREJOIN_DEVICE_ERRORS,
     SET_PREJOIN_DISPLAY_NAME_REQUIRED,
     SET_PREJOIN_PAGE_VISIBILITY,
-    SET_SKIP_PREJOIN
+    SET_SKIP_PREJOIN,
+    SET_SKIP_PREJOIN_ON_RELOAD
 } from './actionTypes';
 
 const DEFAULT_STATE = {
@@ -31,6 +32,10 @@ const DEFAULT_STATE = {
     showJoinByPhoneDialog: false,
     userSelectedSkipPrejoin: false
 };
+
+PersistenceRegistry.register('features/prejoin', false, {
+    skipPrejoinOnReload: false
+});
 
 /**
  * Listen for actions that mutate the prejoin state
@@ -109,6 +114,12 @@ ReducerRegistry.register(
             return {
                 ...state,
                 isDisplayNameRequired: true
+            };
+        }
+        case SET_SKIP_PREJOIN_ON_RELOAD: {
+            return {
+                ...state,
+                skipPrejoinOnReload: action.value
             };
         }
 

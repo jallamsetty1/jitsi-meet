@@ -27,6 +27,7 @@ import {
 import { isVpaasMeeting } from '../billing-counter/functions';
 import { clearNotifications, showNotification } from '../notifications';
 import { setFatalError } from '../overlay';
+import { setSkipPrejoinOnReload } from '../prejoin';
 
 import {
     getDefaultURL,
@@ -251,6 +252,11 @@ export function reloadWithStoredParams() {
     return (dispatch: Dispatch<any>, getState: Function) => {
         const state = getState();
         const { locationURL } = state['features/base/connection'];
+        const { skipPrejoinOnReload } = state['features/base/config'];
+
+        if (skipPrejoinOnReload) {
+            dispatch(setSkipPrejoinOnReload(true));
+        }
 
         // Preserve the local tracks muted states.
         const newURL = addTrackStateToURL(locationURL, state);
